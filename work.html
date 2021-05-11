@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        div {
+            width: 200px;
+            height: 400px;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            color: hsl(226, 87%, 43%);
+        }
+
+        #d2 {
+            left: 400px;
+        }
+
+        #d3 {
+            left: 600px;
+        }
+
+        #d4 {
+            left: 800px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div>
+        <ol>前端
+            <li>註冊登入(第3方登入 密碼驗證 忘記密碼)</li>
+            <li>購物車</li>
+            <li>結帳</li>
+            <br>
+            <li>食譜 </li>
+            <li>新增刪除</li>
+            <li>留言 按讚</li>
+            <br>
+            <li>爬蟲</li>
+            <li></li>
+            <li>搜索</li>
+            <li>1對1聊天</li>
+            <li></li>
+
+        </ol>
+    </div>
+    <div id="d2">
+        <ol>後台
+            <li>登入</li>
+            <li>訂單生成</li>
+            <li>商品新增刪除</li>
+            <li>統計報表</li>
+            <li>會員資料</li>
+            <li>員工資料</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <div id="d3">
+        <ol>其他
+            <li>搜索   評價排序  刪除不要 </li>
+            <li>資料庫</li>
+            <li>firebase</li>
+            <li></li>
+            <li>推撥分享</li>
+            <li>營養成分 卡路里</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <div id="d4">
+        <ol>會員服務
+            <li>個人頁面</li>
+            <li>食譜收藏</li>
+            <li>商品訂單</li>
+            <li>帳號設定</li>
+            <li>忘記密碼</li>
+            <li>歷史訂單</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+</body>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var canWidth = canvas.width = window.innerWidth;
+    var canHeight = canvas.height = window.innerHeight;
+    var ctx = canvas.getContext("2d");
+    var x = [];
+    var y = [];
+    var cl;
+    ctx.lineWidth = 3;
+
+
+
+    window.onmousemove = function (e) {
+        x[0] = e.clientX;
+        y[0] = e.clientY;
+        // cl= `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255},${1/(i)})`;
+        cl = "rgb(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + ",255)";
+    }
+    draw();
+    function draw() {
+        diX = x[0] - x[1];
+        diY = y[0] - y[1];
+        dist = diX * diX + diY * diY;
+        // if (dist > 20) {
+        for (let s = 9; s > -1; s--) {
+            x[s + 1] = x[s];
+            y[s + 1] = y[s];
+        }
+        // }
+        ctx.clearRect(0, 0, canWidth, canHeight);
+
+        for (let i = 1; i < x.length; i++) {
+
+            ctx.beginPath();
+
+            ctx.strokeStyle = cl;
+            ctx.moveTo(x[i], y[i]);
+            ctx.lineTo(x[i + 1], y[i + 1]);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        requestAnimationFrame(draw);
+    };
+
+</script>
+
+</html>
