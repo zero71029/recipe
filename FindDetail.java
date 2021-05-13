@@ -11,11 +11,11 @@ import org.json.JSONObject;
 
 public class FindDetail {
 
-	public static void main(String[] args) {
+	public void getDetail(String UUU) {
 		System.out.println("hello FindDetail................");
 //		JspContext context =  getJspContext();
 //		JspWriter out = context.getOut();
-		String UUU = "https://icook.tw/recipes/372470";
+//		String UUU = "https://icook.tw/recipes/372470";
 		ArrayList<String> cn = new ArrayList();
 		try {
 			URL url = new URL(UUU);
@@ -25,38 +25,33 @@ public class FindDetail {
 			String line;
 			JSONArray root = new JSONArray();
 			JSONObject row = null;
-			JSONObject ingredients = new JSONObject();
+//			JSONObject ingredients = new JSONObject();
 			while ((line = reader.readLine()) != null) {
 				if (line.contains("recipe-step-cover ratio-container ratio-container-4-3 glightbox")) {
 					row = new JSONObject();
 //          	   	  System.out.println(line.indexOf("href="));
-					System.out.println(line.substring(line.indexOf("description: ") + 13,
+					System.out.println("步驟"+line.substring(line.indexOf("description: ") + 13,
 							line.indexOf("\" data-track-id", 50) - 1));
 					row.put("address", line.substring(line.indexOf("description: ") + 13,
 							line.indexOf("\" data-track-id", 50) - 1));
-					System.out.println(line.substring(line.indexOf("href=") + 6,
+					System.out.println("步驟圖片"+line.substring(line.indexOf("href=") + 6,
 							line.indexOf(">", 50) - 1));
 					row.put("img", line.substring(line.indexOf("href=") + 6,
 							line.indexOf(">", 50) - 1));
 				root.put(row);
 				}
-				
-				
-				
-				
+
 				if (line.contains("data-track-id=\"recipe-ingredient\"")) {
-//					ingredients = new JSONObject();
 					System.out.println(line.substring(line.indexOf("data-name=") + 11,
 							line.indexOf("\" href=\"", 50) - 1));
-					ingredients.put("ingredients",line.substring(line.indexOf("data-name=") + 11,
-							line.indexOf("\" href=\"", 50) - 1));
-
+//					ingredients.put("ingredients",line.substring(line.indexOf("data-name=") + 11,
+//							line.indexOf("\" href=\"", 50) - 1));
 				}
 
 			}
-			root.put(ingredients);
+//			root.put(ingredients);
 				System.out.println(root);
-				System.out.println(ingredients);
+//				System.out.println(ingredients);
 				reader.close();
 			
 		} catch (Exception e) {

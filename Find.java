@@ -24,12 +24,14 @@ public class Find {
 			String line;
 			JSONArray root = new JSONArray();
 			JSONObject row = null;
+			FindDetail fd = new FindDetail();
 			while ((line = reader.readLine()) != null) {
 				if (line.contains("class=\"browse-recipe-link\"")) {
 					row = new JSONObject();
 //        	  System.out.println(line.indexOf("href="));
 					System.out.println("網址:  https://icook.tw"
 							+ line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
+					fd.getDetail("https://icook.tw"+line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
 					row.put("address", line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
 				}
 
