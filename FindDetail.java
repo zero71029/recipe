@@ -30,11 +30,11 @@ public class FindDetail {
 				if (line.contains("recipe-step-cover ratio-container ratio-container-4-3 glightbox")) {
 					row = new JSONObject();
 //          	   	  System.out.println(line.indexOf("href="));
-					System.out.println("步驟"+line.substring(line.indexOf("description: ") + 13,
+					System.out.println("步驟 : "+line.substring(line.indexOf("description: ") + 13,
 							line.indexOf("\" data-track-id", 50) - 1));
 					row.put("address", line.substring(line.indexOf("description: ") + 13,
 							line.indexOf("\" data-track-id", 50) - 1));
-					System.out.println("步驟圖片"+line.substring(line.indexOf("href=") + 6,
+					System.out.println("步驟圖片 : "+line.substring(line.indexOf("href=") + 6,
 							line.indexOf(">", 50) - 1));
 					row.put("img", line.substring(line.indexOf("href=") + 6,
 							line.indexOf(">", 50) - 1));

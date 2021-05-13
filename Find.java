@@ -32,6 +32,9 @@ public class Find {
 					System.out.println("網址:  https://icook.tw"
 							+ line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
 					fd.getDetail("https://icook.tw"+line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
+					System.out.println("");
+					System.out.println("");
+					System.out.println("=======================================================================");
 					row.put("address", line.substring(line.indexOf("href=") + 6, line.indexOf(">", 50) - 1));
 				}
 
