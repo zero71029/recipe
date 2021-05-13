@@ -13,7 +13,7 @@ public class Find {
 
 	public static void main(String[] args) {
 		System.out.println("hello Find................");
-		String newEn = "雞胸肉";
+		String newEn = "杏鮑菇";
 		String UUU = "https://icook.tw/search/" + newEn;
 
 		try {

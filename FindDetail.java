@@ -42,8 +42,8 @@ public class FindDetail {
 				}
 
 				if (line.contains("data-track-id=\"recipe-ingredient\"")) {
-					System.out.println(line.substring(line.indexOf("data-name=") + 11,
-							line.indexOf("\" href=\"", 50) - 1));
+					System.out.println("食材 : "+line.substring(line.indexOf("data-name=") + 11,
+							line.indexOf("\" href=\"", 0) - 0));
 //					ingredients.put("ingredients",line.substring(line.indexOf("data-name=") + 11,
 //							line.indexOf("\" href=\"", 50) - 1));
 				}
