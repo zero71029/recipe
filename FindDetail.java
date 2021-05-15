@@ -1,10 +1,12 @@
 package tw.org.iii.recipe;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,6 +27,7 @@ public class FindDetail {
 			String line;
 			JSONArray root = new JSONArray();
 			JSONObject row = null;
+			
 //			JSONObject ingredients = new JSONObject();
 			while ((line = reader.readLine()) != null) {
 				if (line.contains("recipe-step-cover ratio-container ratio-container-4-3 glightbox")) {
@@ -41,14 +44,18 @@ public class FindDetail {
 				root.put(row);
 				}
 
-				if (line.contains("data-track-id=\"recipe-ingredient\"")) {
-					System.out.println("食材 : "+line.substring(line.indexOf("data-name=") + 11,
-							line.indexOf("\" href=\"", 0) - 0));
-//					ingredients.put("ingredients",line.substring(line.indexOf("data-name=") + 11,
-//							line.indexOf("\" href=\"", 50) - 1));
+				if (line.contains("\"recipeIngredient\"")) {
+					System.out.println("食材 : "+line.substring(line.indexOf("\"recipeIngredient\"") + 18,
+							line.indexOf(",\"recipeInstructio", 0) - 0));
+					String AAA = line.substring(line.indexOf("\"recipeIngredient\"") + 21,
+							line.indexOf(",\"recipeInstructio", 0) - 2);
+//					System.out.println(AAA);
+					String Ingredients[] = AAA.split("\",\"");
+					for(String i:Ingredients)System.out.println(i);
 				}
 
 			}
+
 //			root.put(ingredients);
 				System.out.println(root);
 //				System.out.println(ingredients);
