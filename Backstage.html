@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台系統</title>
+    <style>
+        * {
+            margin: 0px;
+
+        }
+
+        .leftdiv {
+            position: absolute;
+            width: 10%;
+            height: 100vh;
+            background-color: blue;
+        }
+
+        .leftdiv .leftList {
+            position: relative;
+            left: 5px;
+            top: 50px;
+            margin: 10px 0 10px 0;
+            width: 90%;
+            border: 1px black solid;
+            font-size: 20px;
+        }
+
+        .leftdiv .leftList:hover {
+            background-color: red;
+        }
+
+        .hea {
+            position: relative;
+            width: 90%;
+            height: 50px;
+            background-color: red;
+            left: 10%;
+        }
+
+        .cenBody {
+            position: relative;
+            left: 15%;
+            top: 60px;
+        }
+        tr  {
+            background-color: #979191;
+            width: 300px;
+        }
+        td{
+            background-color: #979191;
+            width: 300px;  
+        }
+    </style>
+</head>
+
+<body>
+    <div class="leftdiv">
+        <div class="leftList">員工資料 </div>
+        <div class="leftList">會員資料</div>
+        <div class="leftList">廠商資料</div>
+        <div class="leftList">商品資料</div>
+        <div class="leftList">-下拉類別</div>
+        <div class="leftList">訂單管理</div>
+        <div class="leftList">統計報表</div>
+        <div class="leftList">客服系統</div>
+        <div class="leftList"></div>
+    </div>
+    <div class="hea"></div>
+    <div class="cenBody">
+        <div>
+            <button>新增</button>
+            <button>修改</button>
+            <button>刪除</button>
+            <button></button>
+            <button></button>
+            <form action=""><input type="text" value="要多難看有多難看"></form>
+        </div>
+        <table>
+            <tr>
+                <th>商品名稱</th>
+                <th>進價</th>
+                <th>售價</th>
+                <th>數量</th>
+                <th>xxxxxxxxxxxxx</th>
+            </tr>
+            <tr>
+                <td>雞胸肉</td>
+                <td>50元</td>
+                <td>100元</td>
+                <td>300個</td>
+                <td>xxxxxxxxxxxxx</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
